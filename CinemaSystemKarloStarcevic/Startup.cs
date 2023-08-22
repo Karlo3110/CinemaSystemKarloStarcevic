@@ -2,6 +2,7 @@ using CinemaSystemKarloStarcevic.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +26,7 @@ namespace CinemaSystemKarloStarcevic
         public void ConfigureServices(IServiceCollection services)
         {
             //DbContext konfiguracija
-            services.AddDbContext<AppDbContext>();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
 
             services.AddControllersWithViews();
         }
