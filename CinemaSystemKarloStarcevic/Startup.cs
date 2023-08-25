@@ -26,7 +26,7 @@ namespace CinemaSystemKarloStarcevic
         public void ConfigureServices(IServiceCollection services)
         {
             //DbContext konfiguracija
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
             services.AddControllersWithViews();
         }
@@ -57,6 +57,9 @@ namespace CinemaSystemKarloStarcevic
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //seedanje database-a
+            AppDbInitializer.Seed(app);
         }
     }
 }

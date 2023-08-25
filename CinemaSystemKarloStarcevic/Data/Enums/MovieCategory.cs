@@ -8,6 +8,7 @@
         Documentary,
         Romance,
         Horror,
-
+        Cartoon,
+        SciFi
     }
 }
